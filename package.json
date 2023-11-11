@@ -1,0 +1,25 @@
+{
+  "name": "carpool_bn",
+  "version": "1.0.0",
+  "description": "Carpool website back-end server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZenanJ/Carpool_BN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZenanJ/Carpool_BN/issues"
+  },
+  "homepage": "https://github.com/ZenanJ/Carpool_BN#readme",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.18.2",
+    "joi": "^13.1.0"
+  }
+}
