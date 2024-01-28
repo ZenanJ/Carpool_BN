@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 let dbConnection;
 
 // MongoDB Atlas connection string with the 'Tut' database
-const uri = 'mongodb+srv://z242jian:Ruian_2018@carpool.ory0mtx.mongodb.net/Tut?retryWrites=true&w=majority';
-
+const uri = process.env.MONGODB_URI.replace('<PASSWORD>', process.env.MONGODB_PASSWORD);
 module.exports = {
   connectToDb: async (cb) => {
     try {

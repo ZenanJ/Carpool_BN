@@ -1,21 +1,21 @@
-const jwt = require('jsonwebtoken');
-const secretKey = 'your-secret-key'; // Change this to a strong, unique key
+const jwt = require("jsonwebtoken");
 
-function authenticateToken(req, res, next) {
-  const token = req.headers['authorization'];
+const config = process.env;
+
+const verifyToken = (req, res, next) => {
+  const token =
+    req.body.token || req.query.token || req.headers["x-access-token"];
 
   if (!token) {
-    return res.status(401).json({ message: 'Unauthorized' });
+    return res.status(403).send("A token is required for authentication");
   }
+  try {
+    const decoded = jwt.verify(token, config.TOKEN_KEY);
+    req.user = decoded;
+  } catch (err) {
+    return res.status(401).send("Invalid Token");
+  }
+  return next();
+};
 
-  jwt.verify(token, secretKey, (err, user) => {
-    if (err) {
-      return res.status(403).json({ message: 'Forbidden' });
-    }
-
-    req.user = user;
-    next();
-  });
-}
-
-module.exports = authenticateToken;
+module.exports = verifyToken;

@@ -3,20 +3,6 @@ const Book = require('../model/book');
 
 const app = express.Router();
 
-// app.get('/books', (req, res) => {
-//     let books = []
-//     db.collection('book')
-//         .find()
-//         .forEach( book => books.push(book))
-//         .then(() => {
-//             res.status(200).json(books);
-//         })
-//         .catch(() => {
-//             res.status(500).json({error: 'Could not fetch the doc'});
-//         })
-
-// });
-
 app.get('/', (req, res) => {
     console.log("inside get");
     res.send('Welcome to my server!');
